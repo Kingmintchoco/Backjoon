@@ -5,6 +5,7 @@
         "queue": "cpp",
         "stack": "cpp",
         "iostream": "cpp",
-        "initializer_list": "cpp"
+        "initializer_list": "cpp",
+        "string": "cpp"
     }
 }
