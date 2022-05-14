@@ -6,6 +6,7 @@
         "stack": "cpp",
         "iostream": "cpp",
         "initializer_list": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "ios": "cpp"
     }
 }
