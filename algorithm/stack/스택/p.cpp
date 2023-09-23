@@ -6,7 +6,7 @@
 using namespace std;
 
 int idx = -1;
-int stack[100000000];
+int stack[10000000];
 
 void push(int x){
     stack[++idx] = x;
