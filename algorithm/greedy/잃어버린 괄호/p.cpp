@@ -2,32 +2,29 @@
 #include <string>
 
 using namespace std;
- 
-int main() {
-    string str, ret;
+
+int main(){
+    freopen("p.txt", "rt", stdin);
+
+    string str;
     cin >> str;
- 
-    int ans = 0;
-    bool flag = false;
- 
-    for (int i = 0; i <= str.size(); i++) {
-        if (str[i] == '-' || str[i] == '+' || i == str.size()) {
-            if (flag){
-                ans -= stoi(ret);
-            }
-            else{
-                ans += stoi(ret);
-            }
+
+    str += '@';
+
+    int idx = 0, ans = 0;
+    string ret = "";
+    bool isNegative = false;
+    while(idx < str.size()){
+        if(str[idx] == '+' || str[idx] == '-' || str[idx] == '@'){
+            if(isNegative) ans -= stoi(ret);
+            else ans += stoi(ret);
 
             ret = "";
-        }else{
-            ret += str[i];
-        }
- 
-        if(str[i] == '-'){
-            flag = true;
-        }    
+            if(str[idx] == '-') isNegative = true;
+            if(str[idx] == '@') break;
+        }else ret += str[idx];
+        idx++;
     }
-    
-    cout << ans;
+
+    cout << ans << "\n";
 }

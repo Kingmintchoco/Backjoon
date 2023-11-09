@@ -5,15 +5,12 @@
 
 using namespace std;
 
-bool cmp(const pair <int, int> &a, const pair <int, int> &b){
-    return a.second < b.second;
-}
-
 int main(){
     freopen("p.txt", "rt", stdin);
 
     int n, s, t;
-    vector < pair <int, int> > schedule;
+    vector <pair <int, int> > schedule;
+    priority_queue <int, vector <int>, greater <int> > pq;          // min heap
 
     cin >> n;
     while(n--){
@@ -21,9 +18,8 @@ int main(){
         schedule.push_back(make_pair(s, t));
     }
 
-    sort(schedule.begin(), schedule.end(), cmp);
-
-    priority_queue < int, vector <int>, greater <int> > pq;
+    sort(schedule.begin(), schedule.end());
+    
     pq.push(schedule[0].second);
     for(int i = 1; i < schedule.size(); ++i){
         if(schedule[i].first < pq.top()){
